@@ -51,7 +51,7 @@ endif
 all: $(OD)_mkdir $(LIB)
 
 $(LIB): $(OBJ) $(incpix) $(incalm) $(incfits) $(incudgrade)
-	$(AR) $@ $(NAMELIB) $(OBJ)
+	$(AR) $@ $(NAMELIB) $(OBJ) -L$(LIBDIR) -lsharp
 	@for p in $(OD)/*.$(MOD); do \
 	cp $$p $(INCDIR)/; \
 	done
