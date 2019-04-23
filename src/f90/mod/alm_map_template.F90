@@ -321,8 +321,8 @@
     !      for the Temperature field
     !=======================================================================
     integer(I4B),   intent(IN)                   :: nsmax, nlmax, nmmax, spin
-    complex(KALMC), intent(IN),  dimension(1:,0:,0:) :: alm
-    real(KMAP),     intent(OUT), dimension(0:,1:) :: map
+    complex(KALMC), intent(IN),   dimension(1:2,0:nlmax,0:nmmax) :: alm
+    real(KMAP),     intent(OUT),  dimension(0:(12_i8b*nsmax)*nsmax-1, 1:2) :: map
     real(DP),       intent(IN),  dimension(1:2),   optional :: zbounds
 
     real(DP), dimension(1:2)         :: zbounds_in
@@ -2655,8 +2655,8 @@
     !        all from scratch
     !=======================================================================
     integer(I4B),   intent(IN)                    :: nsmax, nlmax, nmmax, spin
-    real(KMAP),     intent(IN),  dimension(0:, 1:) :: map
-    complex(KALMC), intent(OUT), dimension(1:,0:,0:) :: alm
+    real(KMAP),     intent(IN),  dimension(0:(12_i8b*nsmax)*nsmax-1,1:2) :: map
+    complex(KALMC), intent(OUT), dimension(1:2,0:nlmax,0:nmmax) :: alm
     real(DP),       intent(IN),  dimension(1:2),         optional :: zbounds
     real(DP),       intent(IN),  dimension(1:2*nsmax,1:2), optional :: w8ring
 
